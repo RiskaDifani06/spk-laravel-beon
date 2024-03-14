@@ -46,6 +46,7 @@
                 </div>
               @enderror
             </div>
+            
             <div class="form-group">
               <label for="nama">Nama Sub Kriteria</label>
               <input type="text" name="nama" id="nama" class="form-control"
@@ -56,16 +57,7 @@
                 </div>
               @enderror
             </div>
-            {{-- <div class="form-group">
-              <label for="bobot">Bobot</label>
-              <input type="number" name="bobot" id="bobot" class="form-control"
-                value="{{ old('bobot') }}">
-              @error('bobot')
-                <div class="text-danger mt-2">
-                  {{ $message }}
-                </div>
-              @enderror
-            </div> --}}
+
             <div class="form-group">
               <label for="bobot">Bobot</label>
               <input type="number" name="bobot" id="bobot" class="form-control" step="0.01" value="{{ old('bobot') }}">
@@ -73,11 +65,26 @@
                   <div class="text-danger mt-2">
                       {{ $message }}
                   </div>
-              @enderror
+              @enderror             
           </div>
-          
+
+          <div class="form-group">
+            <label for="tipe">Nama Kriteria</label>
+            <select name="tipe" id="tipe" class="form-control">
+              <option value="">Pilih Tipe</option>
+              <option value="cost">Cost</option>
+              <option value="benefit">Benefit</option>
+            </select>
+            @error('tipe')
+              <div class="text-danger mt-2">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+        
             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
             <a href="{{ route('sub-kriteria.index') }}" class="btn btn-secondary mt-3">Batal</a>
+            
           </form>
         </div>
       </div>

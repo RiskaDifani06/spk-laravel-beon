@@ -28,6 +28,7 @@ class SubKriteriaController extends Controller
    */
   public function create()
   {
+    
     $kriteria = Kriteria::all();
 
     return view('sub-kriteria.create', compact('kriteria'));
@@ -37,21 +38,22 @@ class SubKriteriaController extends Controller
    * Store a newly created resource in storage.
    */
   public function store(Request $request)
-  {
+{
     $request->validate([
-      'kriteria_id' => 'required',
-      'nama' => 'required',
-      'bobot' => 'required',
-      'tipe' => 'required',
+        'kriteria_id' => 'required',
+        'nama' => 'required',
+        'bobot' => 'required',
+        'tipe' => 'required',
     ]);
 
     try {
-      SubKriteria::create($request->all());
-      return redirect()->route('sub-kriteria.index');
+        SubKriteria::create($request->all());
+        return redirect()->route('sub-kriteria.index');
     } catch (\Exception $e) {
-      return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
+        return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
     }
-  }
+}
+
 
   /**
    * Display the specified resource.

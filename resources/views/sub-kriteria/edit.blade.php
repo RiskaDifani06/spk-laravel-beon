@@ -84,6 +84,25 @@
               @enderror
             </div>
 
+            <div
+              class="form-group
+              @error('tipe')
+                has-error
+              @enderror">
+              <label for="tipe">Tipe</label>
+              <select name="tipe" id="tipe" class="form-control">
+                <option value="">Pilih Tipe</option>
+                <option value="cost" {{ $subKriteria->tipe == 'cost' ? 'selected' : '' }}>Cost</option>
+                <option value="benefit" {{ $subKriteria->tipe == 'benefit' ? 'selected' : '' }}>Benefit
+                </option>
+              </select>
+              @error('tipe')
+                <div class="text-danger mt-2">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            
             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
             <a href="{{ route('sub-kriteria.index') }}" class="btn btn-secondary mt-3">Batal</a>
           </form>

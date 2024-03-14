@@ -39,7 +39,7 @@
                   <th>Nama Kriteria</th>
                   <th>Nama Sub Kriteria</th>
                   <th>Bobot</th>
-                  <th>Aksi</th>
+                  <th>Tipe</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,6 +49,7 @@
                     <td>{{ $sub->kriteria->nama }}</td>
                     <td>{{ $sub->nama }}</td>
                     <td>{{ $sub->bobot }}</td>
+                    <td class="text-uppercase">{{ $sub->tipe }}</td>
                     <td>
                       <a href="{{ route('sub-kriteria.edit', $sub->id) }}" class="btn btn-warning">
                         Edit
