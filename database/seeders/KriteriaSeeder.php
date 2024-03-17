@@ -14,8 +14,23 @@ class KriteriaSeeder extends Seeder
   public function run(): void
   {
     Kriteria::create([
-      'nama' => 'C1',
-      'bobot' => 4,
+      'nama' => 'Inti',
+      'bobot' => 20,
+    ]);
+
+    Kriteria::create([
+      'nama' => 'Pendukung',
+      'bobot' => 5,
+    ]);
+
+    Kriteria::create([
+      'nama' => 'Softskill',
+      'bobot' => 10,
+    ]);
+
+    Kriteria::create([
+      'nama' => 'Hardskill',
+      'bobot' => 65,
     ]);
   }
 }

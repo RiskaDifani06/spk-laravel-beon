@@ -13,8 +13,10 @@ class AlternatifSeeder extends Seeder
    */
   public function run(): void
   {
-    Alternatif::create([
-      'nama' => 'Alternatif 1'
-    ]);
+    for ($i = 1; $i <= 5; $i++) {
+      Alternatif::create([
+        'nama' => "Alternatif $i"
+      ]);
+    }
   }
 }

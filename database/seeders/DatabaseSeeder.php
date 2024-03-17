@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
     $this->call([
       AlternatifSeeder::class,
       KriteriaSeeder::class,
+      SubKriteriaSeeder::class,
     ]);
   }
 }

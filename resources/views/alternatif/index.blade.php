@@ -54,7 +54,7 @@
                 @endforeach
               </tbody>
             </table>
-            <nav aria-label="Page navigation">
+            <nav class="d-flex justify-content-between align-items-center" aria-label="Page navigation">
               <span>
                 Showing
                 {{ $alternatif->firstItem() }}

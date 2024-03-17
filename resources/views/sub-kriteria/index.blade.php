@@ -40,6 +40,7 @@
                   <th>Nama Sub Kriteria</th>
                   <th>Bobot</th>
                   <th>Tipe</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,6 +62,20 @@
                 @endforeach
               </tbody>
             </table>
+            <nav class="d-flex justify-content-between align-items-center" aria-label="Page navigation">
+              <span>
+                Showing
+                {{ $subKriteria->firstItem() }}
+                to
+                {{ $subKriteria->lastItem() }}
+                of
+                {{ $subKriteria->total() }}
+                entries
+              </span>
+              <ul class="pagination">
+                {{ $subKriteria->links() }}
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

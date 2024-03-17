@@ -15,7 +15,7 @@ return new class extends Migration
       $table->id();
       $table->foreignId('kriteria_id')->constrained('kriteria')->cascadeOnDelete();
       $table->string('nama');
-      $table->decimal('bobot', 8, 2); 
+      $table->double('bobot'); 
       $table->enum('tipe', ['benefit', 'cost']);
       $table->timestamps();
     });
