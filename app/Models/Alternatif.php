@@ -11,4 +11,14 @@ class Alternatif extends Model
 
   protected $table = 'alternatif';
   protected $fillable = ['nama'];
+
+  public function values()
+  {
+    return $this->hasMany(AlternativeValues::class, 'alternatif_id');
+  }
+
+  public function hasilPenilaian()
+  {
+    return $this->hasOne(HasilPenilaian::class, 'alternatif_id');
+  }
 }

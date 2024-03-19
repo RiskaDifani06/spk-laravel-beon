@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\AlternativeValuesController;
+use App\Http\Controllers\HasilPenilaianController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +50,16 @@ Route::middleware('auth')->group(function () {
   Route::get('/sub-kriteria/{subKriteria}/edit', [SubKriteriaController::class, 'edit'])->name('sub-kriteria.edit');
   Route::put('/sub-kriteria/{subKriteria}', [SubKriteriaController::class, 'update'])->name('sub-kriteria.update');
   Route::delete('/sub-kriteria/{subKriteria}', [SubKriteriaController::class, 'destroy'])->name('sub-kriteria.destroy');
+
+  Route::get('/penilaian', [AlternativeValuesController::class, 'index'])->name('penilaian.index');
+  Route::get('/penilaian/create', [AlternativeValuesController::class, 'create'])->name('penilaian.create');
+  Route::post('/penilaian', [AlternativeValuesController::class, 'store'])->name('penilaian.store');
+  Route::get('/penilaian/{alternativeValues}', [AlternativeValuesController::class, 'show'])->name('penilaian.show');
+  Route::get('/penilaian/{alternativeValues}/edit', [AlternativeValuesController::class, 'edit'])->name('penilaian.edit');
+  Route::put('/penilaian/{alternativeValues}', [AlternativeValuesController::class, 'update'])->name('penilaian.update');
+  Route::delete('/penilaian/{alternativeValues}', [AlternativeValuesController::class, 'destroy'])->name('penilaian.destroy');
+
+  Route::get('/hasil-penilaian', [HasilPenilaianController::class, 'index'])->name('hasil-penilaian.index');
 
   Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
   Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kriteria;
 use App\Models\SubKriteria;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SubKriteriaController extends Controller
 {
@@ -48,6 +49,7 @@ class SubKriteriaController extends Controller
 
     try {
         SubKriteria::create($request->all());
+        Alert::success('Berhasil', 'Data berhasil disimpan');
         return redirect()->route('sub-kriteria.index');
     } catch (\Exception $e) {
         return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
@@ -87,6 +89,7 @@ class SubKriteriaController extends Controller
 
     try {
       $subKriteria->update($request->all());
+      Alert::success('Bereah', 'Data berhasil diubah');
       return redirect()->route('sub-kriteria.index');
     } catch (\Exception $e) {
       return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
@@ -100,7 +103,8 @@ class SubKriteriaController extends Controller
   {
     try {
       $subKriteria->delete();
-      return redirect()->route('sub-kriteria.index');
+      Alert::success('Bereah', 'Data berhasil dihapus');
+      return back();
     } catch (\Exception $e) {
       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }

@@ -69,8 +69,24 @@
           <span>{{ __('Sub Kriteria') }}</span></a>
       </li>
 
+       <!-- Divider -->
+       <hr class="sidebar-divider my-0">
+
+       <li class="nav-item {{ Nav::isRoute('penilaian*') }}">
+         <a class="nav-link" href="{{ route('penilaian.index') }}">
+           <i class="fas fa-fw fa-solid fa-star"></i>
+           <span>{{ __('Penilaian') }}</span></a>
+       </li>
+ 
+       <li class="nav-item {{ Nav::isRoute('hasil-penilaian*') }}">
+         <a class="nav-link" href="{{ route('hasil-penilaian.index') }}">
+           <i class="fas fa-fw fa-solid fa-star"></i>
+           <span>{{ __('Hasil Penilaian') }}</span></a>
+       </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
+      
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -190,7 +206,17 @@
 
       </div>
       <!-- End of Main Content -->
-
+      
+       <!-- Footer -->
+       <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; <a href="https://github.com/aleckrh" target="_blank">Aleckrh</a>
+              {{ now()->year }}</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

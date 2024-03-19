@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
       AlternatifSeeder::class,
       KriteriaSeeder::class,
       SubKriteriaSeeder::class,
+      AlternativesValueSeeder::class,
     ]);
   }
 }

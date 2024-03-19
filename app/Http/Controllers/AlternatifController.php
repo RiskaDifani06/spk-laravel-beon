@@ -85,8 +85,19 @@ class AlternatifController extends Controller
    */
   public function destroy(Alternatif $alternatif)
   {
-    $alternatif->delete();
-    alert()->success('Berhasil', 'Data berhasil dihapus');
+    try {
+      $alternatif->delete();
+      alert()->success('Berhasil', 'Data berhasil dihapus');
+    } catch (\Illuminate\Database\QueryException $e) {
+      $errorCode = $e->getCode();
+      if ($errorCode === '4400' || $errorCode === '23000') {  // Common foreign key constraint error codes
+        alert()->error('Gagal Hapus', 'Data alternatif masih digunakan. Hapus data yang terkait terlebih dahulu.');
+      } else {
+        alert()->error('Gagal Hapus', 'Terjadi kesalahan saat menghapus data.');
+        throw $e;
+      }
+    }
+
     return back();
   }
 }
